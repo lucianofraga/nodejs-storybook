@@ -1,5 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+
+// Loading the configuration
 dotenv.config({ path: './config/config.env' });
 
 const server = express();
