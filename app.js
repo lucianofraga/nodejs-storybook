@@ -14,14 +14,17 @@ connectDb();
 const app = express();
 const PORT = process.env.PORT;
 
+// Static folder
+app.use(express.static('public'));
+
 // Logging
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
 // View engine
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
+app.engine('.hbs', engine({extname: '.hbs'}));
+app.set('view engine', '.hbs');
 app.set('views', './views');
 
 // Routes
